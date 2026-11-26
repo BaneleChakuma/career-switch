@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 /// Colours from the Figma wireframes (minimalist, growth teal accent).
 class AppColors {

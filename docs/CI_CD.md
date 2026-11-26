@@ -7,7 +7,6 @@
 | `ci.yml` | Every pull request and push to `main` | Format check, `flutter analyze`, tests with coverage, debug APK build, web build |
 | `release-android.yml` | Tag `v*` (or manual run) | Runs tests, builds a signed App Bundle, creates a GitHub Release, uploads to the Google Play **internal** track |
 | `deploy-web.yml` | Pull requests and `main` (off until Sprint 13) | Tests, `flutter build web`, Vercel preview for pull requests, production for `main` |
-| `bootstrap.yml` | Manual, once | Generates the `android/` and `web/` folders with `flutter create`. Delete it after it has run. |
 | Dependabot | Weekly / monthly | Updates Dart packages and GitHub Actions |
 
 `main` is protected: the CI checks must pass before a pull request can merge.
