@@ -1,6 +1,6 @@
 # CLAUDE.md: working on career-switch
 
-Read this first. It's the standing brief for any Claude session (Claude Code in VS Code, terminal or cloud) working in this repo. The current sprint's detailed brief is in `docs/handoff/`. Start with the newest file there.
+Read this first. It's the standing brief for any Claude session working in this repo. Usually that's the Claude CLI (`claude`) running in VS Code's integrated terminal. The current sprint's detailed brief is in `docs/handoff/`. Start with the newest file there.
 
 ## What this is
 
