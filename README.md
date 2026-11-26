@@ -19,6 +19,7 @@ Built with **Flutter** (Android first, then web) and **Supabase**.
 - [Roadmap](docs/ROADMAP.md): 24 two-week sprints, Android app first (months 1–6), then the web app (months 7–12)
 - [CI/CD](docs/CI_CD.md): what runs on each pull request, tag and merge, and which secrets are needed
 - [Contributing](CONTRIBUTING.md): branching, commits and the Definition of Done
+- [Handoff briefs](docs/handoff/): sprint-by-sprint notes for Claude Code (`CLAUDE.md` is the standing brief)
 - Issues are user stories, milestones are sprints, and labels mark the epic, area and story points.
 
 ## Run it locally
