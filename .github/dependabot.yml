@@ -1,0 +1,14 @@
+version: 2
+updates:
+  - package-ecosystem: pub
+    directory: /
+    schedule:
+      interval: weekly
+    assignees: ["BaneleChakuma"]
+    labels: ["type: chore"]
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: monthly
+    assignees: ["BaneleChakuma"]
+    labels: ["type: chore", "area: ci-cd"]

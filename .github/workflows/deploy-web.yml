@@ -1,0 +1,47 @@
+name: Deploy web
+
+# CD for the web phase (months 7-12). Switched off until Sprint 13:
+# set the repository variable WEB_DEPLOY_ENABLED=true and add the
+# VERCEL_TOKEN, VERCEL_ORG_ID and VERCEL_PROJECT_ID secrets.
+# Pull requests get a preview URL; pushes to main go to production.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  deploy:
+    if: vars.WEB_DEPLOY_ENABLED == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+      VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          cache: true
+
+      - run: flutter pub get
+      - run: flutter test
+      - run: flutter build web --release
+
+      - name: Install Vercel CLI
+        run: npm install --global vercel@latest
+
+      - name: Deploy preview
+        if: github.event_name == 'pull_request'
+        run: vercel deploy build/web --token=${{ secrets.VERCEL_TOKEN }} --yes
+
+      - name: Deploy production
+        if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+        run: vercel deploy build/web --prod --token=${{ secrets.VERCEL_TOKEN }} --yes

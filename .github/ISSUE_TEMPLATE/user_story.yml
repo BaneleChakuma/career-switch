@@ -1,0 +1,41 @@
+name: User story
+description: A piece of user-facing value that fits in one sprint
+title: "[Story] "
+labels: ["type: story"]
+assignees: ["BaneleChakuma"]
+body:
+  - type: textarea
+    id: story
+    attributes:
+      label: User story
+      description: Who wants what, and why?
+      placeholder: As a career switcher, I want ..., so that ...
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance criteria
+      description: Testable Given / When / Then statements.
+      placeholder: |
+        - [ ] Given ..., when ..., then ...
+    validations:
+      required: true
+  - type: textarea
+    id: tasks
+    attributes:
+      label: Tasks
+      placeholder: |
+        - [ ] ...
+  - type: dropdown
+    id: points
+    attributes:
+      label: Story points
+      options: ["1", "2", "3", "5", "8"]
+    validations:
+      required: true
+  - type: textarea
+    id: notes
+    attributes:
+      label: Notes, designs and links
+      description: Figma frame, research, API docs, related issues.

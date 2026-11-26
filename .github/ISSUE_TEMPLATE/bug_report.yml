@@ -1,0 +1,39 @@
+name: Bug report
+description: Something isn't working as expected
+title: "[Bug] "
+labels: ["type: bug"]
+assignees: ["BaneleChakuma"]
+body:
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened?
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. Open ...
+        2. Tap ...
+        3. See ...
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What did you expect?
+  - type: input
+    id: device
+    attributes:
+      label: Device and version
+      placeholder: Samsung A14, Android 14, app v0.3.0 / Chrome 131
+  - type: dropdown
+    id: severity
+    attributes:
+      label: Severity
+      options:
+        - "Blocker: app crashes or can't continue"
+        - "Major: feature broken, workaround exists"
+        - "Minor: cosmetic or small annoyance"
