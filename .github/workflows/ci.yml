@@ -39,7 +39,7 @@ jobs:
         run: flutter test --coverage
 
       - name: Upload coverage report
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: coverage
           path: coverage/lcov.info
@@ -76,7 +76,7 @@ jobs:
         if: steps.platform.outputs.ready == 'true'
         run: flutter build apk --debug
 
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         if: steps.platform.outputs.ready == 'true'
         with:
           name: app-debug-apk
