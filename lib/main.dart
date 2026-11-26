@@ -2,6 +2,6 @@ import 'package:material_ui/material_ui.dart';
 
 import 'app.dart';
 
-void main() {
+void  main( ) {
   runApp(const CareerSwitchApp());
 }
