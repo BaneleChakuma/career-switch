@@ -9,7 +9,27 @@
 | `deploy-web.yml` | Pull requests and `main` (off until Sprint 13) | Tests, `flutter build web`, Vercel preview for pull requests, production for `main` |
 | Dependabot | Weekly / monthly | Updates Dart packages and GitHub Actions |
 
-`main` is protected: the CI checks must pass before a pull request can merge.
+## Branch protection
+
+`main` is protected (Settings → Branches → rule for `main`), so nothing reaches it without a pull request and green CI:
+
+- Pull request required (0 approvals; this is a solo project).
+- Required status checks, which are the job names in `ci.yml`:
+  - `Format, analyze and test`
+  - `Build Android (debug APK)`
+  - `Build web`
+- Branches must be up to date with `main` before merging.
+- Force pushes and branch deletion are blocked.
+
+Pull requests merge by **squash only**, and head branches are deleted automatically after merging (Settings → General → Pull Requests).
+
+If you rename a job in `ci.yml`, update the required checks too. Otherwise GitHub waits forever for a check that never reports.
+
+Check the current rule with:
+
+```bash
+gh api repos/BaneleChakuma/career-switch/branches/main/protection
+```
 
 ## Secrets
 
